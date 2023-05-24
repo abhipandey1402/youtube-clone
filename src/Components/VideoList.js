@@ -4,6 +4,7 @@ import "../App.css";
 const VideoList = ({ videos, videoChosen }) => {
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         videoChosen(videos[0])
     }, [videos])
 
