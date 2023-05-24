@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import VideoList from "./Components/VideoList";
+import VideoPlay from "./Components/VideoPlay";
+import Navbar from "./Components/Navbar";
 
-function App() {
+const App = () => {
+  const [videos, setVideos] = useState([])
+
+  const [selectedVideo, setSelectedVideo] = useState(null)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <Navbar addVideos={setVideos}/>
 
+      <div style={{ display: "flex" }}>
+        <div style={{ width: "65vw" }}>
+          <VideoPlay video={selectedVideo} />
+        </div>
+
+        <div style={{ width: "35vw" }}>
+          <VideoList videos={videos} videoChosen={setSelectedVideo} />
+        </div>
+      </div>
+
+    </div>
+  )
+}
 export default App;
