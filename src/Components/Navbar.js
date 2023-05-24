@@ -6,7 +6,7 @@ const Navbar = ({addVideos}) =>{
 
     return(
         <div className="navbar">
-            <img src={logo}></img>
+            <img src={logo} alt="YoutubeLogo"></img>
             <SearchBar addVideos={addVideos} />
         </div>
     )
